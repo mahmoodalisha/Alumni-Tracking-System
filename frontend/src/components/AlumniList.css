@@ -1,0 +1,125 @@
+/* Container for the alumni list */
+.alumni-list {
+    padding: 20px;
+    display: flex; /* Make the container a flex container */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    gap: 20px; /* Space between items */
+    justify-content: center; /* Center items horizontally */
+}
+
+/* Remove default list styles and padding/margin from ul */
+.alumni-list ul {
+    padding: 0; /* Remove padding from ul */
+    margin: 0; /* Remove margin from ul */
+    list-style: none; /* Remove default list styling */
+    display: flex; /* Ensure ul is a flex container */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    gap: 20px; /* Space between items */
+    justify-content: center; /* Center items horizontally */
+    width: 100%; /* Ensure ul takes full width of the container */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Styling for each alumni item */
+.alumni-item {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 300px; /* Maximum width for each item */
+    text-align: center;
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+/* Container for each alumni detail */
+.alumni-container {
+    background-color: #fff;
+    border-radius: 8px; /* Border radius */
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1); /* Box shadow */
+    padding: 15px; /* Padding inside each box */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition for hover effect */
+    text-align: center; /* Center align text */
+    height: 250px; /* Fixed height */
+    max-height: 250px; /* Ensure it doesn't grow beyond this height */
+    overflow: auto; /* Handle overflow content */
+}
+
+
+/* Hover effect for the alumni container */
+.alumni-container:hover {
+    transform: scale(1.03); /* Slightly enlarge the container */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+/* General text styles */
+.alumni-container h3 {
+    font-size: 1.25rem; /* Font size for the name */
+    margin-bottom: 8px; /* Margin below name */
+    color: #333;
+}
+
+.alumni-container p {
+    color: #555;
+    margin: 4px 0; /* Margin around paragraphs */
+}
+
+/* Link styling */
+.alumni-container a {
+    color: #0077b5;
+    text-decoration: none;
+}
+
+.alumni-container a:hover {
+    text-decoration: underline;
+}
+
+/* Image styling */
+.alumni-container img {
+    margin-top: 8px; /* Margin on top of image */
+    border-radius: 4px; /* Border radius for images */
+    max-width: 100%; /* Ensure image fits within container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Button styling */
+.alumni-container button {
+    margin: 4px; /* Margin around buttons */
+    padding: 6px 12px; /* Padding inside buttons */
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.alumni-container::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+    height: 8px; /* Height for horizontal scrollbar if needed */
+}
+
+.alumni-container::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Background color of the track */
+    border-radius: 10px; /* Round the corners of the track */
+}
+
+.alumni-container::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded thumb */
+    border: 2px solid transparent; /* Space between thumb and track */
+}
+
+.alumni-container::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color of the scrollbar thumb on hover */
+}
+
+/* Hide arrows for horizontal scrolling */
+.alumni-container::-webkit-scrollbar-button {
+    display: none; /* Hide the scrollbar arrows */
+}
+
+/* Custom scrollbar styles for Firefox */
+.alumni-container {
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: #888 #f1f1f1; /* Thumb and track colors */
+}

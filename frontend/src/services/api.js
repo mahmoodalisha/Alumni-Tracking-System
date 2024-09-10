@@ -1,0 +1,52 @@
+//src/services/api.js
+import axios from 'axios';
+
+const API_URL = 'http://localhost:5000/api/admin'; 
+
+// Function to create a new alumni
+export const createAlumni = (token, alumniData) => {
+    return axios.post(`${API_URL}/alumni`, alumniData, {
+        headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'multipart/form-data'
+        }
+    });
+};
+
+// Function to update an existing alumni
+export const updateAlumni = (token, id, alumniData) => {
+    return axios.put(`${API_URL}/alumni/${id}`, alumniData, {
+        headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'multipart/form-data'
+        }
+    })
+    .then(response => {
+        console.log('Update response:', response.data);
+        return response.data;
+    })
+    .catch(error => {
+        console.error('Update error:', error.response ? error.response.data : error.message);
+        throw error; // Re-throw the error for further handling
+    });
+};
+// Function to fetch all alumni list
+export const fetchAlumni = () => {
+    return axios.get(`${API_URL}/alumni`)
+    .then(response => {
+        return response.data;
+    })
+    .catch(error => {
+        console.error('Error fetching alumni:', error);
+        throw error;
+    });
+};
+
+
+
+// Function to delete an alumni
+export const deleteAlumni = (token, id) => {
+    return axios.delete(`${API_URL}/alumni/${id}`, {
+        headers: { Authorization: `Bearer ${token}` }
+    });
+};
