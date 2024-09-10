@@ -1,8 +1,8 @@
 import React from 'react';
-import './AlumniList.css'; // Import the CSS for AlumniList
+import './AlumniList.css'; 
 
 const AlumniList = ({ alumniList = [], onEdit, onDelete }) => {
-    console.log('AlumniList received:', alumniList); // Check the data passed
+    console.log('AlumniList received:', alumniList); 
 
     if (!alumniList.length) {
         return <p>No alumni found.</p>;

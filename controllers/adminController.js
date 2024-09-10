@@ -6,18 +6,18 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 
-// Define the uploads directory at the root of the project
+
 const uploadsDir = path.join(__dirname, '..', 'uploads');
 
-// Create the uploads directory if it doesn't exist
+
 if (!fs.existsSync(uploadsDir)) {
     fs.mkdirSync(uploadsDir, { recursive: true });
 }
 
-// JWT token generator
+
 const createToken = (id) => jwt.sign({ id }, process.env.JWT_SECRET);
 
-// Verify token middleware
+
 exports.verifyToken = (req, res, next) => {
     const token = req.headers.authorization?.split(' ')[1]; // Extract token after 'Bearer'
     if (!token) return res.status(401).json({ message: 'Unauthorized' });
@@ -29,16 +29,16 @@ exports.verifyToken = (req, res, next) => {
     });
 };
 
-// Multer setup for file uploads (Alumni photo)
+
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => cb(null, uploadsDir), // Use absolute path for the destination
+    destination: (req, file, cb) => cb(null, uploadsDir), 
     filename: (req, file, cb) => cb(null, Date.now() + path.extname(file.originalname)),
 });
 
 const upload = multer({ 
     storage,
     fileFilter: (req, file, cb) => {
-        const filetypes = /jpeg|jpg|png/; // Accept only image files
+        const filetypes = /jpeg|jpg|png/;
         const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
         const mimetype = filetypes.test(file.mimetype);
         if (mimetype && extname) {
@@ -66,7 +66,7 @@ exports.adminLogin = async (req, res) => {
     }
 };
 
-// Create Alumni
+
 exports.createAlumni = [
     upload.single('photo'),
     async (req, res) => {
@@ -78,7 +78,7 @@ exports.createAlumni = [
                 graduationYear,
                 company,
                 linkedinProfile,
-                photo: req.file ? req.file.filename : '', // Save the photo filename
+                photo: req.file ? req.file.filename : '', 
                 motivationMessage
             });
             await alumni.save();
@@ -89,7 +89,7 @@ exports.createAlumni = [
     }
 ];
 
-// Fetch all alumni
+
 exports.getAllAlumni = async (req, res) => {
     try {
         const alumni = await Alumni.find();
@@ -99,7 +99,7 @@ exports.getAllAlumni = async (req, res) => {
     }
 };
 
-// Update Alumni
+
 exports.updateAlumni = async (req, res) => {
     const { id } = req.params;
     const { name, email, graduationYear, company, linkedinProfile, motivationMessage } = req.body;
@@ -121,7 +121,7 @@ exports.updateAlumni = async (req, res) => {
     }
 };
 
-// Delete Alumni
+
 exports.deleteAlumni = async (req, res) => {
     const { id } = req.params;
     try {

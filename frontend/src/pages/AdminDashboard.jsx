@@ -31,7 +31,7 @@ const AdminDashboard = () => {
                 await createAlumni(token, alumniData);
             }
             const response = await fetchAlumni(token);
-            setAlumniList(response || []); // Adjust based on the actual response structure
+            setAlumniList(response || []); 
             setSelectedAlumni(null);
         } catch (error) {
             console.error('Error creating/updating alumni', error);
@@ -40,7 +40,7 @@ const AdminDashboard = () => {
     
     
     const handleEdit = (alumni) => {
-        setSelectedAlumni(alumni); // Set the selected alumni for editing
+        setSelectedAlumni(alumni); 
     };
 
     const handleLogout = () => {

@@ -3,13 +3,13 @@ const { adminLogin, verifyToken, createAlumni, getAllAlumni, updateAlumni, delet
 
 const router = express.Router();
 
-// Admin login route
+
 router.post('/login', adminLogin);
 
-// Alumni management routes (protected)
-router.post('/alumni', verifyToken, createAlumni); // Create alumni
-router.get('/alumni', getAllAlumni); // Get all alumni
-router.put('/alumni/:id', verifyToken, updateAlumni); // Update alumni
-router.delete('/alumni/:id', verifyToken, deleteAlumni); // Delete alumni
+
+router.post('/alumni', verifyToken, createAlumni); 
+router.get('/alumni', getAllAlumni); 
+router.put('/alumni/:id', verifyToken, updateAlumni); 
+router.delete('/alumni/:id', verifyToken, deleteAlumni); 
 
 module.exports = router;

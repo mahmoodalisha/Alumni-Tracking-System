@@ -1,9 +1,8 @@
-//src/services/api.js
 import axios from 'axios';
 
 const API_URL = 'http://localhost:5000/api/admin'; 
 
-// Function to create a new alumni
+
 export const createAlumni = (token, alumniData) => {
     return axios.post(`${API_URL}/alumni`, alumniData, {
         headers: {
@@ -13,7 +12,7 @@ export const createAlumni = (token, alumniData) => {
     });
 };
 
-// Function to update an existing alumni
+
 export const updateAlumni = (token, id, alumniData) => {
     return axios.put(`${API_URL}/alumni/${id}`, alumniData, {
         headers: {
@@ -30,7 +29,7 @@ export const updateAlumni = (token, id, alumniData) => {
         throw error; // Re-throw the error for further handling
     });
 };
-// Function to fetch all alumni list
+// i am fetchin all alumni list
 export const fetchAlumni = () => {
     return axios.get(`${API_URL}/alumni`)
     .then(response => {
@@ -44,7 +43,7 @@ export const fetchAlumni = () => {
 
 
 
-// Function to delete an alumni
+// i want to delete an alumni
 export const deleteAlumni = (token, id) => {
     return axios.delete(`${API_URL}/alumni/${id}`, {
         headers: { Authorization: `Bearer ${token}` }

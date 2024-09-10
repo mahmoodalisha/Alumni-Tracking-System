@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import AlumniList from '../components/AlumniList'; 
-import Hero from '../components/Hero';  // Import Hero
+import Hero from '../components/Hero';  
 import { fetchAlumni } from '../services/api';
 import './AlumniPage.css';
 
@@ -26,7 +26,7 @@ const AlumniPage = () => {
         loadAlumni();
     }, []);
 
-    // Function to handle search passed to Hero
+    
     const handleSearch = (term) => {
         const filtered = alumniList.filter(alumni =>
             alumni.name.toLowerCase().includes(term.toLowerCase())
