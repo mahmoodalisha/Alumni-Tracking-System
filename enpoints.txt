@@ -1,0 +1,21 @@
+POST: http://localhost:5000/api/admin/create-admin
+
+{
+    "email": "admin@example.com",
+    "password": "admin123"
+}
+{
+  "message": "Admin created successfully"
+}
+
+
+
+
+POST: http://localhost:5000/api/admin/login
+{
+    "email": "admin@example.com",
+    "password": "admin123"
+}
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZGQ3NThmOWQ5YjMyNjBiMjA4Y2RkYyIsImlhdCI6MTcyNTc4OTc3NSwiZXhwIjoxNzI1NzkzMzc1fQ.kGY8A0ckVc-DqgHkH6WHpcmoBn11Ss033SLFpEWTz7Q"
+}
