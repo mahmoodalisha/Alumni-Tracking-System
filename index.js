@@ -14,6 +14,8 @@ app.use(cors());
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
+
+
 mongoose.connect(db)
     .then(() => console.log('MongoDB connected...'))
     .catch(err => {
