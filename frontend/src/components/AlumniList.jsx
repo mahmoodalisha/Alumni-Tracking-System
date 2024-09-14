@@ -1,17 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './AlumniList.css'; 
 
-const AlumniList = ({ alumniList = [], onEdit, onDelete }) => {
-    console.log('AlumniList received:', alumniList); 
+const AlumniList = ({ alumniList, onEdit, onDelete }) => {
+    console.log('AlumniList received:', alumniList);
+    
+    const safeAlumniList = Array.isArray(alumniList) ? alumniList : [];
 
-    if (!alumniList.length) {
+    
+    console.log('AlumniList content:', safeAlumniList);
+
+    if (safeAlumniList.length === 0) {
         return <p>No alumni found.</p>;
     }
 
     return (
         <div className="alumni-list">
             <ul>
-                {alumniList.map(alumni => (
+                {safeAlumniList.map(alumni => (
                     <li key={alumni._id} className="alumni-item">
                         <div className="alumni-container">
                             <h3>{alumni.name}</h3>
@@ -41,6 +47,19 @@ const AlumniList = ({ alumniList = [], onEdit, onDelete }) => {
             </ul>
         </div>
     );
+};
+
+AlumniList.propTypes = {
+    alumniList: PropTypes.array,
+    onEdit: PropTypes.func,
+    onDelete: PropTypes.func,
+};
+
+// Default props
+AlumniList.defaultProps = {
+    alumniList: [],
+    onEdit: () => {},
+    onDelete: () => {},
 };
 
 export default AlumniList;
