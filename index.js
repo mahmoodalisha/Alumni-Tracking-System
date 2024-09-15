@@ -1,13 +1,11 @@
 require("dotenv").config();
 const express = require('express');
+const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors'); 
 const path = require('path');
-const adminRoutes = require('./routes/adminRoute');
-
-const app = express();
 const db = process.env.MONGO_URI;
-
+const adminRoutes = require('./routes/adminRoute');
 
 app.use(express.json());
 app.use(cors({ origin: '*' }));
@@ -21,17 +19,14 @@ mongoose.connect(db)
         console.error('Error message:', err.message);
     });
 
-
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
 app.use(express.static(path.resolve(__dirname, 'frontend', 'build')));
 
 app.get("/test", (req, res) => {
     res.send("Express app is running");
 });
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use('/api/admin', adminRoutes);
-
 
 app.get('*', (req, res) => {
     res.sendFile(
