@@ -47,3 +47,17 @@ export const deleteAlumni = (token, id) => {
         headers: { Authorization: `Bearer ${token}` }
     });
 };
+
+// GET http://localhost:5000/api/admin/alumni Status: 200 OK
+/* [
+  {
+    "_id": "66df1cc6ffb00c9bace373a8",
+    "name": "Alex Thompson",
+    "email": "alex.thompson@example.com",
+    "graduationYear": 2019,
+    "company": "Software Engineer at Google",
+    "linkedinProfile": "https://linkedin.com/in/alex-thompson",
+    "photo": "1725897926485.jpg",
+    "motivationMessage": "Always strive to learn and grow. Embrace challenges and turn them into opportunities",
+    "__v": 0
+  }, */
