@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://alumni-tracking-system-psi.vercel.app/'; 
+const API_URL = '/api/admin'; 
 
 
 export const createAlumni = (token, alumniData) => {
