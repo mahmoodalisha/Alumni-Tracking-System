@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = process.env.REACT_APP_API_URL || 'https://alumni-tracking-system-psi.vercel.app/api/admin' ;
+const API_URL = process.env.REACT_APP_API_URL ;
  
 
 
@@ -31,21 +31,16 @@ export const updateAlumni = (token, id, alumniData) => {
     });
 };
 // i am fetchin all alumni list
-export const fetchAlumni = async () => {
-    try {
-        const response = await fetch(`${API_URL}/alumni`);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        return data;
-    } catch (error) {
+export const fetchAlumni = () => {
+    return axios.get(`${API_URL}/alumni`)
+    .then(response => {
+        return response.data;
+    })
+    .catch(error => {
         console.error('Error fetching alumni:', error);
         throw error;
-    }
+    });
 };
-
-
 
 
 // i want to delete an alumni
