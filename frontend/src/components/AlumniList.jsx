@@ -1,7 +1,7 @@
 import React from 'react';
 import './AlumniList.css'; 
 
-const AlumniList = ({ alumniList = [], onEdit, onDelete }) => {
+const AlumniList = ({ alumniList = [], onEdit, onDelete }) => {  //alumniList is a prop and is desctrutred here to extract the values
     console.log('AlumniList received:', alumniList); 
 
     if (!alumniList.length) {
@@ -11,7 +11,7 @@ const AlumniList = ({ alumniList = [], onEdit, onDelete }) => {
     return (
         <div className="alumni-list">
             <ul>
-                {alumniList.map(alumni => (
+                {alumniList.map(alumni => (  //using the prop
                     <li key={alumni._id} className="alumni-item">
                         <div className="alumni-container">
                             <h3>{alumni.name}</h3>
@@ -22,7 +22,7 @@ const AlumniList = ({ alumniList = [], onEdit, onDelete }) => {
                             {alumni.photo && (
                                 <p>
                                     <img 
-                                        src={`http://localhost:5000/uploads/${alumni.photo}`} 
+                                        src={`/uploads/${alumni.photo}`} 
                                         alt={alumni.name} 
                                         width="100" 
                                     />
