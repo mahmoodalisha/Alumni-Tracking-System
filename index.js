@@ -12,6 +12,11 @@ const app = express();
 app.use(express.json());
 app.use(cors({ origin: '*' }));
 
+// Add Cache-Control middleware
+app.use((req, res, next) => {
+    res.set('Cache-Control', 'no-store');
+    next();
+});
 
 mongoose.connect(db)
     .then(() => {
